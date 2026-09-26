@@ -35,9 +35,9 @@ jobs:
       - name: Deploy TechStore to EC2
         uses: appleboy/ssh-action@v1.2.0
         with:
-          host: ${{ secrets.98.92.228.162 }}
-          username: ${{ secrets.ubuntu }}
-          key: ${{secrets.EC2_SSH_KEY  }}
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/techstore:latest
             sudo docker stop techstore-container || true
